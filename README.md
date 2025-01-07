@@ -7,7 +7,7 @@
 4. [Models Diagram](#models-diagram)
 
 ### Description
-CosmeticManager is a Java application for tracking beauty product usage, aiming to support sustainability in daily life. It also encourages users to explore new styles with their cosmetic products, creating an inspiring atmosphere for them.
+CosmeticManager is a Spring Boot application for tracking beauty product usage, aiming to support sustainability in daily life. It also encourages users to explore new styles with their cosmetic products, creating an inspiring atmosphere for them.
 
 ### Business Requirements
 For this application, I have identified the following 10 business requirements:
