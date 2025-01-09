@@ -2,10 +2,10 @@ package com.cosmetic_manager.cosmetic_manager.model;
 
 import com.cosmetic_manager.cosmetic_manager.utils.Frequency;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Size;
 
 import java.util.Date;
-
 
 @Entity
 @Table(name = "routines")
@@ -22,7 +22,8 @@ public class Routines {
     private String name;
 
     private String description;
-    private int usage;
+
+    private int usageCount = 0;
     private Frequency frequency;
     private Date createdAt;
 
