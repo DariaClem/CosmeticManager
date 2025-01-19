@@ -1,15 +1,21 @@
 package com.cosmetic_manager.cosmetic_manager.model;
 
 import com.cosmetic_manager.cosmetic_manager.utils.Frequency;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
+import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "routines")
-public class Routines {
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Routine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -18,7 +24,6 @@ public class Routines {
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
     private User user;
 
-    @Size(min=2, max=50, message = "Name must be between 2 and 50 characters")
     private String name;
 
     private String description;
@@ -26,6 +31,10 @@ public class Routines {
     private int usageCount = 0;
     private Frequency frequency;
     private Date createdAt;
+
+    @OneToMany
+    @JsonIgnore
+    private List<RoutineProduct> routineProducts;
 
     @PrePersist
     protected void onCreate() {
