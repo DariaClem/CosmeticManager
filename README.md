@@ -9,9 +9,6 @@
 ### Description
 CosmeticManager is a Spring Boot 3.4 application for tracking beauty product usage, aiming to support sustainability in daily life. It also encourages users to explore new styles with their cosmetic products, creating an inspiring atmosphere for them.
 
-### API Documentation
-The API documentation is available at `http://localhost:8080/swagger-ui/index.html#/` when the application is running.
-
 ### Business Requirements
 For this application, I have identified the following 10 business requirements:
 1. Users should be able to create an account and log in.
@@ -62,3 +59,11 @@ The following diagram shows the 7 models that are used in the application and th
 - `RoutineProduct` (Product used in a custom routine by a user)
 
 ![Models Diagram](./ER_diagram.png)
+
+### API Documentation
+The API documentation is available at `http://localhost:8080/swagger-ui/index.html#/` when the application is running.
+
+#### Swagger documentation
+![Endpoints 1](./Captură ecran (1052).png)
+![Endpoints 2](./Captură ecran (1053).png)
+![Schemas](./Captură ecran (1054).png)

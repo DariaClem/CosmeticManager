@@ -12,7 +12,7 @@ import java.util.Optional;
 @Repository
 public interface UserProductUsageRepository extends JpaRepository<UserProductUsage, UserProductUsagePK> {
     List<UserProductUsage> findById_UserId(int userId);
-
+    List<UserProductUsage> findById_ProductId(int productId);
     Optional<UserProductUsage> findById(UserProductUsagePK id);
 
     @Query(value = "SELECT * FROM user_product_usage u " +

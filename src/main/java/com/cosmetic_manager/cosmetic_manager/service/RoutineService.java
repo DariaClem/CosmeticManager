@@ -9,6 +9,7 @@ import com.cosmetic_manager.cosmetic_manager.repository.RoutineProductRepository
 import com.cosmetic_manager.cosmetic_manager.repository.RoutineRepository;
 import com.cosmetic_manager.cosmetic_manager.repository.UserRepository;
 import com.cosmetic_manager.cosmetic_manager.utils.RoutineUtil;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class RoutineService {
     }
 
     public Routine getRoutineById(int id) {
-        return routineRepository.findById(id).orElseThrow();
+        return routineRepository.findById(id).orElseThrow(() -> new RoutineNotFoundException("Routine not found"));
     }
 
     public Routine createNewRoutine(RoutineCreateDto routineDto) {
@@ -54,6 +55,7 @@ public class RoutineService {
         return routineRepository.save(routine);
     }
 
+    @Transactional
     public Routine deleteRoutine(int id) {
         Routine routine = routineRepository.findById(id).orElseThrow(() -> new RoutineNotFoundException("Routine not found"));
 

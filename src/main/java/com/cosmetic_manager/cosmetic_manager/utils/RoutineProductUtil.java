@@ -23,17 +23,8 @@ public class RoutineProductUtil {
 
     public RoutineProduct fromRoutineProductDtoToRoutineProduct(RoutineProductDto routineProductDto) {
         Routine routine = routineService.getRoutineById(routineProductDto.getRoutineId());
-        if (routine == null) {
-            throw new RoutineNotFoundException("Routine not found");
-        }
-
         int user_id = routine.getUser().getId();
         UserProductUsage userProductUsage = userProductUsageService.getUserProductUsage(user_id, routineProductDto.getProductId());
-
-        if (userProductUsage == null) {
-            throw new ProductNotFoundException("Product not found");
-        }
-
         Product product = userProductUsage.getId().getProduct();
 
         return RoutineProduct.builder()

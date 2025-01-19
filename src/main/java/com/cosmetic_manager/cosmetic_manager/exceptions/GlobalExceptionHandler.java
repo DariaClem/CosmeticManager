@@ -43,6 +43,14 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
 
+    @ExceptionHandler(ReviewNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleReviewNotFoundException(ReviewNotFoundException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "Review not found");
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
     @ExceptionHandler(UserProductUsageAlreadyExists.class)
     public ResponseEntity<Map<String, String>> handleUserProductUsageAlreadyExists(UserProductUsageAlreadyExists ex) {
         Map<String, String> response = new HashMap<>();
@@ -55,6 +63,14 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Map<String, String>> handleRoutineNotFoundException(RoutineNotFoundException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("error", "Routine not found");
+        response.put("message", ex.getMessage());
+        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<Map<String, String>> handleCategoryNotFoundException(CategoryNotFoundException ex) {
+        Map<String, String> response = new HashMap<>();
+        response.put("error", "Category not found");
         response.put("message", ex.getMessage());
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }

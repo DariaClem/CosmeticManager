@@ -6,5 +6,14 @@ public enum CategoryName {
     HAIRCARE,
     FRAGRANCE,
     BODYCARE,
-    NAILCARE
+    NAILCARE;
+
+    public static boolean contains(String name) {
+        for (CategoryName category : CategoryName.values()) {
+            if (category.name().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
