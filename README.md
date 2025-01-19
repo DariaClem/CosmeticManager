@@ -64,6 +64,6 @@ The following diagram shows the 7 models that are used in the application and th
 The API documentation is available at `http://localhost:8080/swagger-ui/index.html#/` when the application is running.
 
 #### Swagger documentation
-![Endpoints 1](./Captură ecran (1052).png)
-![Endpoints 2](./Captură ecran (1053).png)
-![Schemas](./Captură ecran (1054).png)
+![Endpoints 1](./Endpoints1.png)
+![Endpoints 2](./Endpoints2.png)
+![Schemas](./Schemas.png)
