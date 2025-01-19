@@ -15,7 +15,7 @@ The API documentation is available at `http://localhost:8080/swagger-ui/index.ht
 ### Business Requirements
 For this application, I have identified the following 10 business requirements:
 1. Users should be able to create an account and log in.
-2. Users should be able to add to their collection and also edit or delete them.
+2. Users should be able to add products to their collection and also edit or delete them.
 3. Products are grouped by categories, so users can view products by category.
 4. Once a product is added to the collection, users should be able to track their usage of it (to motivate them to use their products).
 5. Once a product is added to the collection, users should be able to track the expiration date of it.
