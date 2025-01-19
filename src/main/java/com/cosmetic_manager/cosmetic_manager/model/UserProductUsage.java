@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Past;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user_product_usage")

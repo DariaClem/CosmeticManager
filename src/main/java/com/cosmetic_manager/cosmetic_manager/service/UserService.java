@@ -2,12 +2,12 @@ package com.cosmetic_manager.cosmetic_manager.service;
 
 import com.cosmetic_manager.cosmetic_manager.dto.LoginDto;
 import com.cosmetic_manager.cosmetic_manager.dto.UserDto;
+import com.cosmetic_manager.cosmetic_manager.exceptions.InvalidCredentialsException;
+import com.cosmetic_manager.cosmetic_manager.exceptions.UserAlreadyExistsException;
 import com.cosmetic_manager.cosmetic_manager.exceptions.UserNotFoundException;
 import com.cosmetic_manager.cosmetic_manager.model.User;
 import com.cosmetic_manager.cosmetic_manager.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 import static com.cosmetic_manager.cosmetic_manager.utils.UserUtil.fromUserDtoToUser;
 
@@ -24,16 +24,20 @@ public class UserService {
     }
 
     public User createNewUser(UserDto userDto) {
+        if (userRepository.findByEmail(userDto.getEmail()).isPresent()) {
+            throw new UserAlreadyExistsException("User with email " + userDto.getEmail() + " already exists");
+        }
         return userRepository.save(fromUserDtoToUser(userDto));
     }
 
     public User login(LoginDto loginDto) {
         return userRepository.findByEmail(loginDto.getEmail())
                 .filter(user -> user.getPassword().equals(loginDto.getPassword()))
-                .orElseThrow();
+                .orElseThrow(() -> new InvalidCredentialsException("Invalid credentials"));
     }
 
-    public Optional<User> getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User with email " + email + " not found"));
     }
 }

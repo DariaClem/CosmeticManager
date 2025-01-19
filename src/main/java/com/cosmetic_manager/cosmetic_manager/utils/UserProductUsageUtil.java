@@ -6,8 +6,6 @@ import com.cosmetic_manager.cosmetic_manager.exceptions.UserNotFoundException;
 import com.cosmetic_manager.cosmetic_manager.model.Product;
 import com.cosmetic_manager.cosmetic_manager.model.User;
 import com.cosmetic_manager.cosmetic_manager.model.UserProductUsage;
-import com.cosmetic_manager.cosmetic_manager.repository.ProductRepository;
-import com.cosmetic_manager.cosmetic_manager.repository.UserRepository;
 import com.cosmetic_manager.cosmetic_manager.service.ProductService;
 import com.cosmetic_manager.cosmetic_manager.service.UserService;
 import org.springframework.stereotype.Component;
