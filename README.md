@@ -7,7 +7,7 @@
 4. [Models Diagram](#models-diagram)
 
 ### Description
-CosmeticManager is a Spring Boot application for tracking beauty product usage, aiming to support sustainability in daily life. It also encourages users to explore new styles with their cosmetic products, creating an inspiring atmosphere for them.
+CosmeticManager is a Spring Boot 3.4 application for tracking beauty product usage, aiming to support sustainability in daily life. It also encourages users to explore new styles with their cosmetic products, creating an inspiring atmosphere for them.
 
 ### API Documentation
 The API documentation is available at `http://localhost:8080/swagger-ui/index.html#/` when the application is running.
