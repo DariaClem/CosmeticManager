@@ -64,6 +64,10 @@ The following diagram shows the 7 models that are used in the application and th
 ### API Documentation
 The API documentation is available at `http://localhost:8080/swagger-ui/index.html#/` when the application is running.
 
+### Testing
+The application has been tested using JUnit 5 and Mockito. 
+![Test Coverage](./img.png)
+
 #### Swagger documentation
 ![Endpoints 1](./Endpoints1.png)
 ![Endpoints 2](./Endpoints2.png)
