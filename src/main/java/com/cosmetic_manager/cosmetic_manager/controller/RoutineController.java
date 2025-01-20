@@ -6,6 +6,7 @@ import com.cosmetic_manager.cosmetic_manager.model.Routine;
 import com.cosmetic_manager.cosmetic_manager.service.RoutineService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -31,7 +32,7 @@ public class RoutineController {
     @Operation(summary = "Get all routines",
             description = "Get all routines of a user")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Routines found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Routine.class)) }),
+            @ApiResponse(responseCode = "200", description = "Routines found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Routine.class))) }),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })

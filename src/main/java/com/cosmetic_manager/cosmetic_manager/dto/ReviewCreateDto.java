@@ -10,4 +10,10 @@ import lombok.experimental.SuperBuilder;
 public class ReviewCreateDto extends ReviewDto {
     private int product_id;
     private int user_id;
+
+    public ReviewCreateDto(int productId, int userId, int rating, String comment) {
+        super(rating, comment);
+        this.product_id = productId;
+        this.user_id = userId;
+    }
 }

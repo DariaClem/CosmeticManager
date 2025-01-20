@@ -5,6 +5,7 @@ import com.cosmetic_manager.cosmetic_manager.model.RoutineProduct;
 import com.cosmetic_manager.cosmetic_manager.service.RoutineProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/routine_product")
+@RequestMapping("/routine_products")
 @Validated
 @Tag(name = "Routine Product API", description = "Operations related to products in routines")
 public class RoutineProductController {
@@ -30,7 +31,7 @@ public class RoutineProductController {
     @Operation(summary = "Get all products in a routine",
             description = "Get all products in a routine")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Products found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = RoutineProduct.class)) }),
+            @ApiResponse(responseCode = "200", description = "Products found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = RoutineProduct.class))) }),
             @ApiResponse(responseCode = "404", description = "Routine not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })

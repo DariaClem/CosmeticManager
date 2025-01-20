@@ -32,9 +32,9 @@ public class Routine {
     private Frequency frequency;
     private Date createdAt;
 
-    @OneToMany
-    @JsonIgnore
-    private List<RoutineProduct> routineProducts;
+//    @OneToMany
+//    @JsonIgnore
+//    private List<RoutineProduct> routineProducts;
 
     @PrePersist
     protected void onCreate() {

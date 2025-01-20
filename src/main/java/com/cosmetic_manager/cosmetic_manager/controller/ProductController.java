@@ -5,6 +5,7 @@ import com.cosmetic_manager.cosmetic_manager.model.Product;
 import com.cosmetic_manager.cosmetic_manager.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/products")
 @Validated
 @Tag(name = "Product API", description = "Operations related to products")
 public class ProductController {
@@ -30,7 +31,7 @@ public class ProductController {
     @Operation(summary = "Get all products",
             description = "Get all products")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Products found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Product.class)) }),
+            @ApiResponse(responseCode = "200", description = "Products found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Product.class))) }),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping("/get_all")

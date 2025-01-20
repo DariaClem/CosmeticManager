@@ -4,6 +4,7 @@ import com.cosmetic_manager.cosmetic_manager.dto.CategoryDto;
 import com.cosmetic_manager.cosmetic_manager.model.Category;
 import com.cosmetic_manager.cosmetic_manager.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/category")
+@RequestMapping("/categories")
 @Validated
 @Tag(name = "Category API", description = "Operations related to categories of products")
 public class CategoryController {
@@ -29,7 +30,7 @@ public class CategoryController {
     @Operation(summary = "Get all categories",
             description = "Get all categories of products")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Categories found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Category.class)) }),
+            @ApiResponse(responseCode = "200", description = "Categories found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Category.class))) }),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping("/get_all")

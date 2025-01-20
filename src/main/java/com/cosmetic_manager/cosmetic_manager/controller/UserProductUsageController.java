@@ -2,6 +2,7 @@ package com.cosmetic_manager.cosmetic_manager.controller;
 
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +27,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
-@RequestMapping("/user_product_usage")
+@RequestMapping("/user_product_usages")
 @Validated
 @Tag(name = "User Product Usage API", description = "Operations related to products added by users in their collection")
 public class UserProductUsageController {
@@ -39,7 +40,9 @@ public class UserProductUsageController {
     @Operation(summary = "Get all user product usages",
             description = "Get all products added by a user in their collection")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Products found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UserProductUsage.class)) }),
+            @ApiResponse(responseCode = "200", description = "Products found", content = { @Content(mediaType =
+                    "application/json", array = @ArraySchema(schema =
+            @Schema(implementation = UserProductUsage.class))) }),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -111,7 +114,9 @@ public class UserProductUsageController {
     @Operation(summary = "Get expired products",
             description = "Get all expired products in the user's collection")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Expired products found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UserProductUsage.class)) }),
+            @ApiResponse(responseCode = "200", description = "Expired products found", content =
+                    { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation =
+                            UserProductUsage.class))) }),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
@@ -123,7 +128,8 @@ public class UserProductUsageController {
     @Operation(summary = "Get products that will expire soon",
             description = "Get all products that will expire in the given period in days")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Expiring products found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UserProductUsage.class)) }),
+            @ApiResponse(responseCode = "200", description = "Expiring products found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation =
+                    UserProductUsage.class))) }),
             @ApiResponse(responseCode = "404", description = "User not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })

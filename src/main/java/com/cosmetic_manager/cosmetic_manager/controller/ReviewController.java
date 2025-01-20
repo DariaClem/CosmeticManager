@@ -7,6 +7,7 @@ import com.cosmetic_manager.cosmetic_manager.model.Review;
 import com.cosmetic_manager.cosmetic_manager.service.ReviewService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -32,7 +33,7 @@ public class ReviewController {
     @Operation(summary = "Get all reviews",
             description = "Get all reviews")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Reviews found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Review.class)) }),
+            @ApiResponse(responseCode = "200", description = "Reviews found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Review.class))) }),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @GetMapping("/get_all")
@@ -67,7 +68,7 @@ public class ReviewController {
     @Operation(summary = "Get reviews by product id",
             description = "Get reviews for a product by product id")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Reviews found", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = Review.class)) }),
+            @ApiResponse(responseCode = "200", description = "Reviews found", content = { @Content(mediaType = "application/json", array = @ArraySchema(schema = @Schema(implementation = Review.class))) }),
             @ApiResponse(responseCode = "404", description = "Product not found", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })

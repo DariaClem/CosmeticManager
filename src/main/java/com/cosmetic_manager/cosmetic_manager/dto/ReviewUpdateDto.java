@@ -12,4 +12,9 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class ReviewUpdateDto extends ReviewDto {
     private int id;
+
+    public ReviewUpdateDto(int id, int rating, String comment) {
+        super(rating, comment);
+        this.id = id;
+    }
 }
