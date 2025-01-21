@@ -3,6 +3,7 @@ package com.cosmetic_manager.cosmetic_manager.controller;
 import java.util.List;
 
 import io.swagger.v3.oas.annotations.media.ArraySchema;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -71,7 +72,7 @@ public class UserProductUsageController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/add_product_usage")
-    public ResponseEntity<UserProductUsage> addUserProductUsage(@RequestBody UserProductUsageDto userProductUsageDto) {
+    public ResponseEntity<UserProductUsage> addUserProductUsage(@RequestBody @Valid UserProductUsageDto userProductUsageDto) {
         return ResponseEntity.ok(userProductUsageService.addUserProductUsage(userProductUsageDto));
     }
 
@@ -95,7 +96,7 @@ public class UserProductUsageController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PatchMapping("/edit_product_usage")
-    public ResponseEntity<UserProductUsage> editUserProductUsage(@RequestBody UserProductUsageDto userProductUsageDto) {
+    public ResponseEntity<UserProductUsage> editUserProductUsage(@RequestBody @Valid UserProductUsageDto userProductUsageDto) {
         return ResponseEntity.ok(userProductUsageService.editUserProductUsage(userProductUsageDto));
     }
 

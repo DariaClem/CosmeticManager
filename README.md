@@ -5,6 +5,10 @@
 2. [Business Requirements](#business-requirements)
 3. [Features of the MVP](#features-of-the-mvp)
 4. [Models Diagram](#models-diagram)
+5. [Beans](#beans)
+    1. [Services](#services)
+    2. [Controllers](#controllers)
+    3. [Repositories](#repositories)
 5. [API Documentation](#api-documentation)
 6. [Testing](#testing)
 
@@ -61,6 +65,37 @@ The following diagram shows the 7 models that are used in the application and th
 - `RoutineProduct` (Product used in a custom routine by a user)
 
 ![Models Diagram](./ER_diagram.png)
+
+### Beans 
+#### Services
+The application has the following services:
+- `UserService` 
+- `UserProductUsageService`
+- `RoutineService`
+- `RoutineProductService`
+- `ReviewService`
+- `ProductService`
+- `CategoryService`
+
+#### Controllers
+The application has the following controllers:
+- `UserController`
+- `UserProductUsageController`
+- `RoutineController`
+- `RoutineProductController`
+- `ReviewController`
+- `ProductController`
+- `CategoryController`
+
+#### Repositories
+The application has the following repositories:
+- `UserRepository`
+- `UserProductUsageRepository`
+- `RoutineRepository`
+- `RoutineProductRepository`
+- `ReviewRepository`
+- `ProductRepository`
+- `CategoryRepository`
 
 ### API Documentation
 The API documentation is available at `http://localhost:8080/swagger-ui/index.html#/` when the application is running.

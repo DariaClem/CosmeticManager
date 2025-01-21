@@ -13,6 +13,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +50,7 @@ public class ReviewController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/create_review")
-    public ResponseEntity<Review> createReview(@RequestBody ReviewCreateDto reviewDto) {
+    public ResponseEntity<Review> createReview(@RequestBody @Valid ReviewCreateDto reviewDto) {
         return ResponseEntity.ok(reviewService.createNewReview(reviewDto));
     }
 
@@ -61,7 +62,7 @@ public class ReviewController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PatchMapping("/update")
-    public ResponseEntity<Review> updateReview(@RequestBody ReviewUpdateDto reviewDto) {
+    public ResponseEntity<Review> updateReview(@RequestBody @Valid ReviewUpdateDto reviewDto) {
         return ResponseEntity.ok(reviewService.updateReview(reviewDto));
     }
 

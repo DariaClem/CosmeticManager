@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -47,7 +48,7 @@ public class ProductController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/create_product")
-    public ResponseEntity<Product> createProduct(@RequestBody ProductDto productDto) {
+    public ResponseEntity<Product> createProduct(@RequestBody @Valid ProductDto productDto) {
         return ResponseEntity.ok(productService.createNewProduct(productDto));
     }
 

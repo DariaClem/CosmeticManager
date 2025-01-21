@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -48,7 +49,7 @@ public class RoutineProductController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/add_product")
-    public ResponseEntity<RoutineProduct> addProductToRoutine(@RequestBody RoutineProductDto routineProductDto) {
+    public ResponseEntity<RoutineProduct> addProductToRoutine(@RequestBody @Valid RoutineProductDto routineProductDto) {
         return ResponseEntity.ok(routineProductService.addNewRoutineProduct(routineProductDto));
     }
 
@@ -60,7 +61,7 @@ public class RoutineProductController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PatchMapping("/edit_product")
-    public ResponseEntity<RoutineProduct> editRoutineProduct(@RequestBody RoutineProductDto routineProductDto) {
+    public ResponseEntity<RoutineProduct> editRoutineProduct(@RequestBody @Valid RoutineProductDto routineProductDto) {
         return ResponseEntity.ok(routineProductService.updateRoutineProduct(routineProductDto));
     }
 

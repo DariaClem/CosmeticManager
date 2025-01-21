@@ -12,6 +12,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +50,7 @@ public class RoutineController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/create")
-    public ResponseEntity<Routine> createNewRoutine(@RequestBody RoutineCreateDto routineCreateDto) {
+    public ResponseEntity<Routine> createNewRoutine(@RequestBody @Valid RoutineCreateDto routineCreateDto) {
         return ResponseEntity.ok(routineService.createNewRoutine(routineCreateDto));
     }
 
@@ -61,7 +62,7 @@ public class RoutineController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PatchMapping("/update")
-    public ResponseEntity<Routine> updateRoutine(@RequestBody RoutineUpdateDto routineUpdateDto) {
+    public ResponseEntity<Routine> updateRoutine(@RequestBody @Valid RoutineUpdateDto routineUpdateDto) {
         return ResponseEntity.ok(routineService.updateRoutine(routineUpdateDto));
     }
 

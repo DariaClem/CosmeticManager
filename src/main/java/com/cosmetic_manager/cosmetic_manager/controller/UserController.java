@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +34,7 @@ public class UserController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/create_account")
-    public ResponseEntity<User> createAccount(@RequestBody UserDto userDto) {
+    public ResponseEntity<User> createAccount(@RequestBody @Valid UserDto userDto) {
         return ResponseEntity.ok(userService.createNewUser(userDto));
     }
 
@@ -46,7 +47,7 @@ public class UserController {
             @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping("/login")
-    public ResponseEntity<User> login(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<User> login(@RequestBody @Valid LoginDto loginDto) {
         return ResponseEntity.ok(userService.login(loginDto));
     }
 
